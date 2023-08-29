@@ -1,6 +1,6 @@
 # Docs
 
-Runs on `Python 3.10`
+Runs on `Python >= 3.8`
 ## Set Up
 ```
 git clone https://github.com/zinchenkomig/ohlcAggregator.git
