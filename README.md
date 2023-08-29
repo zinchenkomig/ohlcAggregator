@@ -3,7 +3,8 @@
 Runs on `Python 3.10`
 ## Set Up
 ```
-git clone
+git clone https://github.com/zinchenkomig/ohlcAggregator.git
+cd ohlcAggregator
 python -m venv ohlc_venv 
 source ohlc_venv/bin/activate
 
@@ -31,17 +32,21 @@ if __name__ == '__main__':
     ema_graph = pd.DataFrame(ohlc.indicators.ema(iter(ohlc_data), smoothing=2, length=7), columns=['ts', 'ema'])
 
     fig = go.Figure()
-    fig.add_trace(go.Candlestick(x=ohlc_df['ts'],
+    fig.add_trace(go.Candlestick(name="Price",
+                                 x=ohlc_df['ts'],
                                  open=ohlc_df['open'],
                                  high=ohlc_df['high'],
                                  low=ohlc_df['low'],
                                  close=ohlc_df['close']))
-    fig.add_trace(go.Scatter(x=ema_graph['ts'], y=ema_graph['ema']))
+    fig.add_trace(go.Scatter(name="EMA", x=ema_graph['ts'], y=ema_graph['ema']))
 
     fig.show()
+
 ```
 
 Here is what you get:
+
+![ema_ohlc_plot](https://github.com/zinchenkomig/ohlcAggregator/assets/68202880/e5668a1a-71a8-40ee-b6b7-b073cfefad37)
 
 
 ## OHLC
