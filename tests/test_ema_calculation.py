@@ -2,7 +2,7 @@ import pytest
 import ohlc
 from decimal import Decimal
 import datetime
-
+import typing
 
 @pytest.mark.parametrize("ohlc_data, result",
                          [
@@ -62,7 +62,7 @@ import datetime
                              )
                          ]
                          )
-def test_ema(ohlc_data: list[ohlc.OHLC], result: list[(datetime.datetime, Decimal)]):
+def test_ema(ohlc_data: list[ohlc.OHLC], result: list[typing.Tuple[datetime.datetime, Decimal]]):
     assert list(ohlc.indicators.ema(iter(ohlc_data), smoothing=2, length=3)) == result
 
 

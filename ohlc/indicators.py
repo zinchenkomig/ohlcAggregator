@@ -1,4 +1,4 @@
-import collections.abc
+import typing
 from decimal import Decimal
 from .ohlc import OHLC
 
@@ -11,7 +11,7 @@ def mean(values: list):
     return sum(values) / len(values)
 
 
-def ema(ohlc_data: collections.abc.Iterator[OHLC], smoothing: float, length: int):
+def ema(ohlc_data: typing.Iterator[OHLC], smoothing: float, length: int):
     if length <= 0:
         raise ValueError('length parameter should be greater than zero')
 

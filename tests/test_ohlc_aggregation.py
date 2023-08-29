@@ -1,8 +1,9 @@
+import datetime
+from decimal import Decimal
+
 import pytest
 
 import ohlc
-import datetime
-from decimal import Decimal
 
 
 @pytest.mark.parametrize("data,result",

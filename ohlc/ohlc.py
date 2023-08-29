@@ -1,4 +1,4 @@
-import collections.abc
+import typing
 import dataclasses
 from datetime import datetime
 from decimal import Decimal
@@ -15,8 +15,8 @@ class OHLC:
     close: Decimal
 
 
-def from_trades(trades: collections.abc.Iterator[(int, Decimal)],
-                interval_seconds: int) -> collections.abc.Iterator[OHLC]:
+def from_trades(trades: typing.Iterator[typing.Tuple[int, Decimal]],
+                interval_seconds: int) -> typing.Iterator[OHLC]:
     """
 
     :param trades: Iterator object that yields tuples with ns int timestamp and Decimal price
